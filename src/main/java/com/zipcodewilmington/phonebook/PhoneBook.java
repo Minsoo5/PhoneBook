@@ -58,14 +58,32 @@ public class PhoneBook {
     }
 
     public String reverseLookup(String phoneNumber)  {
-
-
-
+   /*     for (String key : phoneBook.keySet()) {
+            if (phoneBook.get(key).contains(phoneNumber)) {
+                return key;
+            }
+        }
+        return null;
+        */
+        for (String key : phoneBook.keySet()) {
+            if (hasEntry(key, phoneNumber)) {
+                return key;
+            }
+        }
         return null;
     }
 
     public List<String> getAllContactNames() {
-        return null;
+        //i want all the keys
+        //List<String> names = new ArrayList<>(phoneBook.keySet());
+        List<String> ans = new ArrayList<>();
+        Map<String, String> names = new LinkedHashMap <>();
+        for (String key : phoneBook.keySet()) {
+            names.put(key, phoneBook.get(key).toString());
+            List<String> temp = new ArrayList<>(phoneBook.keySet());
+            ans = temp;
+        }
+        return ans;
     }
 
     public Map<String, List<String>> getMap() {
