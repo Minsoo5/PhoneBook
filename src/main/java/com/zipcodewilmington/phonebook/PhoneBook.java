@@ -17,7 +17,7 @@ public class PhoneBook {
     }
 
     public PhoneBook() {
-        this(new TreeMap<>());
+        this(new LinkedHashMap<>());
     }
 
     public void add(String name, String phoneNumber) {
@@ -75,15 +75,20 @@ public class PhoneBook {
 
     public List<String> getAllContactNames() {
         //i want all the keys
-        //List<String> names = new ArrayList<>(phoneBook.keySet());
-        List<String> ans = new ArrayList<>();
-        Map<String, String> names = new LinkedHashMap <>();
-        for (String key : phoneBook.keySet()) {
-            names.put(key, phoneBook.get(key).toString());
-            List<String> temp = new ArrayList<>(phoneBook.keySet());
-            ans = temp;
+//        List<String> ans = new ArrayList<>();
+//        Map<String, String> names = new LinkedHashMap <>();
+//        for (String key : phoneBook.keySet()) {
+//            names.put(key, phoneBook.get(key).toString());
+//            List<String> temp = new ArrayList<>(phoneBook.keySet());
+//            ans = temp;
+//        }
+//        return ans;
+
+        List<String> names = new ArrayList<>();
+        for (String name : phoneBook.keySet()) {
+            names.add(name);
         }
-        return ans;
+        return names;
     }
 
     public Map<String, List<String>> getMap() {
